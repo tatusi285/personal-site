@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark light" />
+
+<!-- ==========================================================
+     李瀚 · 个人主页（单页静态站，零构建，直接部署）
+     改内容：全站搜索 "EDIT:" 会定位到每一处需要维护的文字。
+     ========================================================== -->
+
+<title>李瀚 · 软件工程在读 · 桌面集成与本地 AI</title>
+<meta name="description" content="成都工业学院软件工程 2024 级。做 Windows 桌面集成与本地 AI 服务：动态壁纸、桌面智能体、语音运行时与消息桥接。" />
+<meta name="author" content="李瀚" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="李瀚 · 桌面集成与本地 AI" />
+<meta property="og:description" content="成都工业学院软件工程 2024 级。Windows 桌面集成、本地 AI 服务与工具链原型。" />
+<!-- EDIT: 上线后把这里换成你的网址，分享卡片更完整（可选） -->
+<meta property="og:url" content="https://example.pages.dev/" />
+<meta name="twitter:card" content="summary" />
+<meta name="theme-color" content="#0a0b0e" id="theme-color" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a0b0e'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='44' fill='%235eead4' text-anchor='middle'%3ELH%3C/text%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/styles.css" />
+
+<script>
+  // 标记 JS 可用（滚动动画只在有 JS 时隐藏元素，避免脚本失效后内容看不见）
+  document.documentElement.classList.add('js');
+
+  // 在样式生效前定好主题，避免刷新时闪白
+  try {
+    var t = localStorage.getItem('theme');
+    if (t !== 'light' && t !== 'dark') {
+      t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    document.documentElement.dataset.theme = t;
+  } catch (e) {}
+</script>
+</head>
+
+<body id="top">
+<a class="skip-link" href="#main">跳到正文</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">L</span>
+      <span class="brand-name">李瀚</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="主导航">
+      <a href="#about">关于</a>
+      <a href="#work">作品</a>
+      <a href="#abilities">能力</a>
+      <a href="#contact">联系</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换深色 / 浅色模式">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" />
+          <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6" />
+        </svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.5 14.7A8.6 8.6 0 0 1 9.3 3.5a8.6 8.6 0 1 0 11.2 11.2Z" />
+        </svg>
+      </button>
+
+      <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 7.5h16M4 12h16M4 16.5h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== 首屏 ===================== -->
+  <section class="hero container">
+    <div class="hero-copy">
+      <p class="status reveal"><span class="status-dot" aria-hidden="true"></span>成都工业学院 · 软件工程 2024 级</p>
+
+      <h1 class="hero-title reveal">李瀚</h1>
+
+      <p class="hero-role reveal">Windows 桌面集成 · 本地 AI 服务</p>
+
+      <p class="hero-bio reveal">
+        我在 Windows 上做两类事：把自定义内容接进系统合成层，让画面活到桌面图标背后；
+        把本地模型做成能一直被调用的服务，而不是一次性的脚本。一个月里积了十五个原型，
+        能跑的都留着 README 和启动入口。
+      </p>
+
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="#work">
+          看看我的作品
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6.5 18.5 12 13 17.5" /></svg>
+        </a>
+        <a class="btn btn-ghost" href="mailto:2499371088@qq.com">给我写邮件</a>
+      </div>
+
+      <dl class="stats reveal">
+        <div><dt>3 个</dt><dd>开源仓库</dd></div>
+        <div><dt>15 个</dt><dd>从零到能跑的原型</dd></div>
+        <div><dt>26 天</dt><dd>做出这批东西的时间</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero-side reveal">
+      <div class="avatar-wrap">
+        <!-- EDIT: 想放真人照片就把下面 div 换成 <img class="avatar" src="assets/me.jpg" alt="李瀚" /> -->
+        <div class="avatar" aria-hidden="true"><span>瀚</span></div>
+        <div class="avatar-ring" aria-hidden="true"></div>
+      </div>
+
+      <ul class="socials" aria-label="社交链接">
+        <li><a href="https://github.com/tatusi285" target="_blank" rel="noopener">GitHub<span aria-hidden="true">↗</span></a></li>
+        <li><a href="mailto:2499371088@qq.com">Email<span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 关于 ===================== -->
+  <section class="section container" id="about">
+    <div class="section-head reveal">
+      <p class="eyebrow">01 — 关于</p>
+      <h2>我做的是什么</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          我是成都工业学院 2024 级软件工程的学生。比起按部就班完成作业，我更习惯给自己找一些
+          “系统本来没打算给你”的问题：让视频活到桌面图标背后，让本地语音模型常驻成一只桌宠，
+          让会话进度出现在手机 QQ 上。
+        </p>
+        <p>
+          做这些的方式基本固定：先确认链路卡在哪，再写一个能跑通的最小版本，
+          然后补上目录、启动脚本与 README，让下一次还能重来。卡住的时候就去翻驱动文档和别人的踩坑记录。
+        </p>
+      </div>
+
+      <div class="about-now reveal">
+        <h3 class="now-title">最近</h3>
+        <ul class="now-list">
+          <li><span>在做</span>haloflux 的多显示器与混合 DPI 适配</li>
+          <li><span>在调</span>piano-keys 的按键判定延迟</li>
+          <li><span>在整</span>把桌宠、QQ 桥接与向量服务收进同一套进程管理</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="skills reveal">
+      <h3 class="skills-title">技能</h3>
+      <ul class="chips">
+        <li>C# / .NET</li><li>Win32 API</li><li>D3D11</li><li>DirectComposition</li>
+        <li>Python</li><li>PowerShell</li><li>Node.js</li><li>SQLite</li>
+        <li>JavaScript</li><li>GPT-SoVITS</li><li>向量检索</li><li>Git</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 作品 ===================== -->
+  <section class="section container" id="work">
+    <div class="section-head reveal">
+      <p class="eyebrow">02 — 作品</p>
+      <h2>精选项目</h2>
+      <p class="section-lead">从 2026 年 10 月到 11 月的一批原型里挑出六个。每个都写清楚了它要解决什么问题、我用了什么办法。</p>
+    </div>
+
+    <div class="projects">
+      <article class="card project reveal">
+        <div class="project-top">
+          <span class="project-index">01</span>
+          <span class="project-kind">桌面集成</span>
+        </div>
+        <h3>Haloflux</h3>
+        <p class="project-desc">
+          Windows 11 的动态壁纸与屏保。画面挂在桌面图标之后：用 Win32 定位 Explorer 的宿主窗口，
+          用 CreateSwapChainForHwnd 把 D3D11 交换链挂到宿主窗口上，渲染循环与 UI 线程分离。屏保复用同一核心，
+          叠多层断环 HUD、扇形数据面板与音乐可视化。
+        </p>
+        <ul class="tags"><li>C# / .NET 9</li><li>D3D11</li><li>Win32</li></ul>
+        <div class="project-links">
+          <a href="https://github.com/tatusi285/haloflux" target="_blank" rel="noopener">源码<span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-top">
+          <span class="project-index">02</span>
+          <span class="project-kind">本地 AI</span>
+        </div>
+        <h3>dsh-pet 桌宠</h3>
+        <p class="project-desc">
+          常驻桌面的智能体入口。置顶透明窗口承载角色与对话，后端接会话与工具：语音走本地 GPT-SoVITS
+          克隆音色，能力覆盖文件读取、网页检索、屏幕观察与 PPT / Word 生成，指令也能从手机 QQ 私聊发进来。
+        </p>
+        <ul class="tags"><li>Python</li><li>GPT-SoVITS</li><li>DSH</li></ul>
+        <div class="project-links">
+          <span>私有仓库 · 未公开</span>
+        </div>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-top">
+          <span class="project-index">03</span>
+          <span class="project-kind">前端 / 交互</span>
+        </div>
+        <h3>piano-keys</h3>
+        <p class="project-desc">
+          把《Avid》的键盘谱做成可视化练习器。谱面解析成时间序列后映射到 23 个按键，每个音符提前点亮键帽、
+          填满即到演奏时点；实时判定按键并统计分数、连击与准确率，五档难度按音域与和弦裁剪。
+        </p>
+        <ul class="tags"><li>JavaScript</li><li>音频时序</li><li>实时判定</li></ul>
+        <div class="project-links">
+          <span>本地项目 · 未开源</span>
+        </div>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-top">
+          <span class="project-index">04</span>
+          <span class="project-kind">工具链</span>
+        </div>
+        <h3>disk-keeper</h3>
+        <p class="project-desc">
+          只读优先的系统盘盘点工具。扫描 C、D、E 三盘目录树，按大小与时间戳列出大文件和当日新增，
+          再结合扩展名与安装规则标注用途和风险，并把结果分成总览、大文件、今日新增、冗余与清理箱几个视图。
+        </p>
+        <ul class="tags"><li>C# / .NET</li><li>文件系统</li><li>规则标注</li></ul>
+        <div class="project-links">
+          <span>本地项目 · 未开源</span>
+        </div>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-top">
+          <span class="project-index">05</span>
+          <span class="project-kind">本地 AI</span>
+        </div>
+        <h3>qq-dsh-bridge</h3>
+        <p class="project-desc">
+          在手机 QQ 上只读查看会话进度，任务完成时自动推送。桥接程序读取会话状态与任务结果，
+          经 QQ 协议投递到指定会话；另封装成 AstrBot 插件，提供查询与推送指令。
+        </p>
+        <ul class="tags"><li>Python</li><li>QQ 协议</li><li>AstrBot</li></ul>
+        <div class="project-links">
+          <a href="https://github.com/tatusi285/qq-dsh-bridge" target="_blank" rel="noopener">源码<span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="card project reveal">
+        <div class="project-top">
+          <span class="project-index">06</span>
+          <span class="project-kind">实验</span>
+        </div>
+        <h3>memory-decidability</h3>
+        <p class="project-desc">
+          智能体记忆的冲突裁决复现件。把“记忆条目彼此矛盾时该听谁的”整理成可重复运行的实验包，
+          方便对照不同裁决策略在同一批场景下的命中与偏差。
+        </p>
+        <ul class="tags"><li>Python</li><li>LLM 记忆</li><li>实验复现</li></ul>
+        <div class="project-links">
+          <a href="https://github.com/tatusi285/memory-decidability" target="_blank" rel="noopener">源码<span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== 能力 ===================== -->
+  <section class="section container" id="abilities">
+    <div class="section-head reveal">
+      <p class="eyebrow">03 — 能力</p>
+      <h2>我能接下什么</h2>
+      <p class="section-lead">下面四条不是简历上的形容词，是上面那批项目里真正动手做过的部分。</p>
+    </div>
+
+    <div class="abilities">
+      <article class="card ability reveal">
+        <div class="project-top">
+          <span class="project-index">01</span>
+          <span class="project-kind">桌面与系统</span>
+        </div>
+        <h3>Windows 桌面集成</h3>
+        <p class="project-desc">
+          把自定义内容挂进系统合成层，而不是在上面盖一层窗口。定位 Explorer 宿主窗口、
+          用交换链接管呈现、让渲染循环脱离 UI 线程，并处理全屏检测、帧率控制与资源回收。
+        </p>
+        <ul class="tags"><li>C#</li><li>Win32</li><li>D3D11</li></ul>
+      </article>
+
+      <article class="card ability reveal">
+        <div class="project-top">
+          <span class="project-index">02</span>
+          <span class="project-kind">AI 工程</span>
+        </div>
+        <h3>本地 AI 服务化</h3>
+        <p class="project-desc">
+          把推理从脚本做成一直在跑的服务：集中管理模型、参考音频与启动参数的语音运行时，
+          轻量 embedding HTTP 服务，以及把会话状态推到消息通道的桥接程序。
+        </p>
+        <ul class="tags"><li>Python</li><li>HTTP</li><li>GPT-SoVITS</li></ul>
+      </article>
+
+      <article class="card ability reveal">
+        <div class="project-top">
+          <span class="project-index">03</span>
+          <span class="project-kind">工具与数据</span>
+        </div>
+        <h3>脚本与数据整理</h3>
+        <p class="project-desc">
+          用脚本把重复劳动变成能重跑的流程：PowerShell 加 node:sqlite 的维护脚本（备份、清理、
+          integrity_check、回滚，142 条清理回归），原始数据到 Markdown 知识库的清洗与导入。
+        </p>
+        <ul class="tags"><li>PowerShell</li><li>SQLite</li><li>Markdown</li></ul>
+      </article>
+
+      <article class="card ability reveal">
+        <div class="project-top">
+          <span class="project-index">04</span>
+          <span class="project-kind">前端</span>
+        </div>
+        <h3>浏览器里的时序交互</h3>
+        <p class="project-desc">
+          做带实时判定的交互工具：把谱面解析成时间序列，用键帽填充当作倒计时，
+          在音频延迟与调度抖动的条件下判定打击点并统计准确率。
+        </p>
+        <ul class="tags"><li>JavaScript</li><li>DOM</li><li>音频时序</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== 联系 ===================== -->
+  <section class="section container" id="contact">
+    <div class="contact-card reveal">
+      <p class="eyebrow">04 — 联系</p>
+      <h2>有想法，聊聊。</h2>
+      <p class="contact-lead">
+        项目合作、技术交流，或者只是想问问某个链路怎么跑通——都可以直接发邮件，看到就回。
+        代码都在 GitHub 上，欢迎来翻。
+      </p>
+
+      <div class="contact-actions">
+        <!-- EDIT: 邮箱改 href 和按钮文字两处；下面的“复制邮箱”按钮会自动读取这个链接 -->
+        <a class="btn btn-primary" href="mailto:2499371088@qq.com">2499371088@qq.com</a>
+        <button class="btn btn-ghost" id="copy-email" type="button" data-email="2499371088@qq.com">复制邮箱</button>
+      </div>
+
+      <ul class="socials socials--row" aria-label="社交链接">
+        <li><a href="https://github.com/tatusi285" target="_blank" rel="noopener">GitHub<span aria-hidden="true">↗</span></a></li>
+        <li><a href="mailto:2499371088@qq.com">Email<span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer container">
+  <p>© <span id="year">2026</span> 李瀚</p>
+  <p class="footer-note">手写的 HTML，托管在 Cloudflare Pages。</p>
+</footer>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>
