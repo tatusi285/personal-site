@@ -4,7 +4,7 @@
 所有文件都在一个仓库里，`git push` 后 GitHub Pages 自动发布。
 
 > 当前内容（2026 年 11 月）：成都工业学院软件工程 2024 级 · 李瀚；
-> 4 个精选项目 + 3 个其他原型、四条能力、四类可胜任岗位；
+> 4 个精选项目 + 3 个其他原型、四条能力、四类可实习方向；
 > 邮箱 2499371088@qq.com、电话 182 1577 1018、GitHub [@tatusi285](https://github.com/tatusi285)。
 
 ```
@@ -91,7 +91,7 @@ git push
 | 项目 | 每个 `<article class="card project">` 一个项目，含 `<figure class="work-figure">` 实录区；不需要实录就删掉整个 figure |
 | 其他原型 | `<ol class="proto-list">` 里的三行，复制 `<li>` 可增加 |
 | 能力 | 每个 `<article class="card ability">` 一条，四条约占满两行 |
-| 岗位 | `<ol class="proto-list role-list">` 里每行一个岗位，`<em>` 是方向副标题 |
+| 实习 | `<ol class="proto-list role-list">` 里每行一个方向，`<em>` 是方向副标题；上方留了可实习时间/地点的 EDIT 注释位 |
 | 联系 | 改 `<a href="mailto:...">` 的地址与按钮文字；电话改 `href="tel:+86..."` 和显示文字；“复制邮箱”会自动读取 mailto 链接 |
 
 > 顶部还有一段 `application/ld+json` 结构化数据（姓名、职务、邮箱、电话、学校），
