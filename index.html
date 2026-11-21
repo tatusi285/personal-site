@@ -10,13 +10,13 @@
      改内容：全站搜索 "EDIT:" 会定位到每一处需要维护的文字。
      ========================================================== -->
 
-<title>李瀚 · 软件工程在读 · 桌面集成与本地 AI</title>
-<meta name="description" content="成都工业学院软件工程 2024 级。做 Windows 桌面集成与本地 AI 服务：动态壁纸、桌面智能体、语音运行时与消息桥接。" />
+<title>李瀚 — Windows 桌面集成与本地模型服务</title>
+<meta name="description" content="成都工业学院软件工程 2024 级。工作覆盖 Windows 桌面合成层集成、本地模型服务化与 LLM 记忆机制研究。" />
 <meta name="author" content="李瀚" />
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="李瀚 · 桌面集成与本地 AI" />
-<meta property="og:description" content="成都工业学院软件工程 2024 级。Windows 桌面集成、本地 AI 服务与工具链原型。" />
+<meta property="og:title" content="李瀚 — Windows 桌面集成与本地模型服务" />
+<meta property="og:description" content="桌面合成层集成、本地模型服务化与 LLM 记忆机制研究。成都工业学院软件工程 2024 级。" />
 <meta property="og:url" content="https://tatusi285.github.io/personal-site/" />
 <link rel="canonical" href="https://tatusi285.github.io/personal-site/" />
 <meta name="twitter:card" content="summary" />
@@ -24,6 +24,21 @@
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a0b0e'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='44' fill='%235eead4' text-anchor='middle'%3ELH%3C/text%3E%3C/svg%3E" />
 <link rel="stylesheet" href="assets/styles.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "李瀚",
+  "jobTitle": "软件工程在读",
+  "email": "mailto:2499371088@qq.com",
+  "telephone": "+8618215771018",
+  "url": "https://tatusi285.github.io/personal-site/",
+  "sameAs": ["https://github.com/tatusi285"],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "成都工业学院" },
+  "knowsAbout": ["Windows 桌面集成", "D3D11", "Win32", "C#", "Python", "本地模型服务", "LLM 记忆"]
+}
+</script>
 
 <script>
   // 标记 JS 可用（滚动动画只在有 JS 时隐藏元素，避免脚本失效后内容看不见）
@@ -52,8 +67,9 @@
 
     <nav class="nav" id="nav" aria-label="主导航">
       <a href="#about">关于</a>
-      <a href="#work">作品</a>
+      <a href="#work">项目</a>
       <a href="#abilities">能力</a>
+      <a href="#roles">岗位</a>
       <a href="#contact">联系</a>
     </nav>
 
@@ -86,33 +102,31 @@
 
       <h1 class="hero-title reveal">李瀚</h1>
 
-      <p class="hero-role reveal">Windows 桌面集成 · 本地 AI 服务</p>
+      <p class="hero-role reveal">Windows 桌面集成 / 本地模型服务</p>
 
       <p class="hero-bio reveal">
-        我在 Windows 上做两类事：把自定义内容接进系统合成层，让画面活到桌面图标背后；
-        把本地模型做成能一直被调用的服务，而不是一次性的脚本。一个月里积了十五个原型，
-        能跑的都留着 README 和启动入口。
+        在 Windows 桌面合成层与本地推理服务两个方向做工程实现。已完成 D3D11 交换链的桌面挂接、
+        GPT-SoVITS 语音运行时封装与会话状态到 QQ 的消息桥接；围绕 LLM 记忆的冲突裁决完成受控实验与研究稿。
       </p>
 
       <div class="hero-actions reveal">
         <a class="btn btn-primary" href="#work">
-          看看我的作品
+          查看项目
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6.5 18.5 12 13 17.5" /></svg>
         </a>
-        <a class="btn btn-ghost" href="mailto:2499371088@qq.com">给我写邮件</a>
+        <a class="btn btn-ghost" href="mailto:2499371088@qq.com">邮件联系</a>
       </div>
 
       <dl class="stats reveal">
+        <div><dt>15 个</dt><dd>原型项目</dd></div>
         <div><dt>3 个</dt><dd>开源仓库</dd></div>
-        <div><dt>15 个</dt><dd>从零到能跑的原型</dd></div>
-        <div><dt>26 天</dt><dd>做出这批东西的时间</dd></div>
+        <div><dt>1 篇</dt><dd>研究稿</dd></div>
       </dl>
     </div>
 
     <div class="hero-side reveal">
       <div class="avatar-wrap">
-        <!-- EDIT: 想放真人照片就把下面 div 换成 <img class="avatar" src="assets/me.jpg" alt="李瀚" /> -->
-        <div class="avatar" aria-hidden="true"><span>瀚</span></div>
+        <img class="avatar" src="assets/me.webp" alt="李瀚" width="640" height="640" />
         <div class="avatar-ring" aria-hidden="true"></div>
       </div>
 
@@ -127,34 +141,35 @@
   <section class="section container" id="about">
     <div class="section-head reveal">
       <p class="eyebrow">01 — 关于</p>
-      <h2>我做的是什么</h2>
+      <h2>工作方向</h2>
     </div>
 
     <div class="about-grid">
       <div class="about-text reveal">
         <p>
-          我是成都工业学院 2024 级软件工程的学生。比起按部就班完成作业，我更习惯给自己找一些
-          “系统本来没打算给你”的问题：让视频活到桌面图标背后，让本地语音模型常驻成一只桌宠，
-          让会话进度出现在手机 QQ 上。
+          工作分两条线。桌面集成线处理「合成层已被系统接管」这一约束：在 DirectComposition 之上定位宿主窗口、
+          用 CreateSwapChainForHwnd 挂接 D3D11 交换链、把渲染循环与 UI 线程解耦，并处理全屏检测、帧率控制与资源回收。
+          已落地的成果包括动态壁纸与屏保（Haloflux）、磁盘盘点工具（disk-keeper）与 DSH 维护脚本。
         </p>
         <p>
-          做这些的方式基本固定：先确认链路卡在哪，再写一个能跑通的最小版本，
-          然后补上目录、启动脚本与 README，让下一次还能重来。卡住的时候就去翻驱动文档和别人的踩坑记录。
+          本地 AI 线处理「推理如何变成服务」：集中管理模型、参考音频与启动参数，对外暴露稳定接口，
+          并把执行状态经消息通道送到移动端。研究方面，围绕记忆冲突的可判定性完成 37 组条件、约 5.1 万次查询的受控实验，
+          整理为论文与可复现仓库。
         </p>
       </div>
 
       <div class="about-now reveal">
-        <h3 class="now-title">最近</h3>
+        <h3 class="now-title">当前工作</h3>
         <ul class="now-list">
-          <li><span>在做</span>haloflux 的多显示器与混合 DPI 适配</li>
-          <li><span>在调</span>piano-keys 的按键判定延迟</li>
-          <li><span>在整</span>把桌宠、QQ 桥接与向量服务收进同一套进程管理</li>
+          <li><span>适配</span>haloflux 的多显示器与混合 DPI</li>
+          <li><span>调优</span>piano-keys 的判定延迟（键盘扫描率与音频延迟）</li>
+          <li><span>整理</span>15 个项目的目录与依赖，收敛为统一进程管理</li>
         </ul>
       </div>
     </div>
 
     <div class="skills reveal">
-      <h3 class="skills-title">技能</h3>
+      <h3 class="skills-title">技术栈</h3>
       <ul class="chips">
         <li>C# / .NET</li><li>Win32 API</li><li>D3D11</li><li>DirectComposition</li>
         <li>Python</li><li>PowerShell</li><li>Node.js</li><li>SQLite</li>
@@ -163,111 +178,150 @@
     </div>
   </section>
 
-  <!-- ===================== 作品 ===================== -->
+  <!-- ===================== 项目 ===================== -->
   <section class="section container" id="work">
     <div class="section-head reveal">
-      <p class="eyebrow">02 — 作品</p>
+      <p class="eyebrow">02 — 项目</p>
       <h2>精选项目</h2>
-      <p class="section-lead">从 2026 年 10 月到 11 月的一批原型里挑出六个。每个都写清楚了它要解决什么问题、我用了什么办法。</p>
+      <p class="section-lead">四项从设计到验证完整走通的工作，附界面实录、仓库与研究稿。</p>
     </div>
 
-    <div class="projects">
+    <div class="projects projects--featured">
       <article class="card project reveal">
+        <figure class="work-figure">
+          <div class="work-media">
+            <video controls muted loop playsinline preload="none"
+                   poster="assets/work/haloflux-poster.jpg"
+                   aria-label="Haloflux 桌面动态壁纸实录">
+              <source src="assets/work/haloflux.mp4" type="video/mp4" />
+              你的浏览器不支持内嵌视频，可直接下载 <a href="assets/work/haloflux.mp4">MP4 文件</a>。
+            </video>
+          </div>
+          <figcaption class="work-caption">27 秒实录 · 桌面挂接与 HUD 渲染</figcaption>
+        </figure>
+
         <div class="project-top">
           <span class="project-index">01</span>
           <span class="project-kind">桌面集成</span>
         </div>
         <h3>Haloflux</h3>
         <p class="project-desc">
-          Windows 11 的动态壁纸与屏保。画面挂在桌面图标之后：用 Win32 定位 Explorer 的宿主窗口，
-          用 CreateSwapChainForHwnd 把 D3D11 交换链挂到宿主窗口上，渲染循环与 UI 线程分离。屏保复用同一核心，
-          叠多层断环 HUD、扇形数据面板与音乐可视化。
+          Windows 11 的桌面由 DirectComposition 合成，常规 GDI 绘制会被丢弃。实现先定位 Explorer 的桌面宿主窗口，
+          再以 CreateSwapChainForHwnd 将 D3D11 交换链挂到该 HWND 由 GPU 呈现；渲染循环独立于 UI 线程，
+          并处理全屏检测、帧率控制与资源回收。屏保复用同一渲染核心，叠加多层断环 HUD、八块扇形数据面板与音乐可视化。
+          仓库 29 次提交。
         </p>
         <ul class="tags"><li>C# / .NET 9</li><li>D3D11</li><li>Win32</li></ul>
         <div class="project-links">
-          <a href="https://github.com/tatusi285/haloflux" target="_blank" rel="noopener">源码<span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/tatusi285/haloflux" target="_blank" rel="noopener">仓库<span aria-hidden="true">↗</span></a>
         </div>
       </article>
 
       <article class="card project reveal">
+        <figure class="work-figure">
+          <div class="work-media work-media--paper">
+            <img src="assets/work/memory-paper.webp" alt="论文首页：Decidability Before Maintenance" width="871" height="1084" loading="lazy" decoding="async" />
+          </div>
+          <figcaption class="work-caption">论文首页 · Decidability Before Maintenance</figcaption>
+        </figure>
+
         <div class="project-top">
           <span class="project-index">02</span>
-          <span class="project-kind">本地 AI</span>
+          <span class="project-kind">研究</span>
         </div>
-        <h3>dsh-pet 桌宠</h3>
+        <h3>记忆冲突的可判定性</h3>
         <p class="project-desc">
-          常驻桌面的智能体入口。置顶透明窗口承载角色与对话，后端接会话与工具：语音走本地 GPT-SoVITS
-          克隆音色，能力覆盖文件读取、网页检索、屏幕观察与 PPT / Word 生成，指令也能从手机 QQ 私聊发进来。
+          受控实验：记忆槽同时保有陈旧值与更新值，考察智能体是否取用当前值。37 组条件、约 51,000 次查询、4 种模型配置。
+          结论与主流假设相反——决定答案的不是维护策略（时效、重要性、衰减），而是呈现层面的可判定性：
+          时间戳可靠时陈旧记录基本被消除（≤0.2%）；去掉时间戳后，仅改变记录顺序即可令错误率在 0%–100% 之间翻转，
+          方向依模型而异。据此构造的记忆层在端到端任务上达到 100% 正确率。
         </p>
-        <ul class="tags"><li>Python</li><li>GPT-SoVITS</li><li>DSH</li></ul>
+        <ul class="tags"><li>Python</li><li>受控实验</li><li>LLM 记忆</li></ul>
+        <div class="project-links">
+          <a href="https://github.com/tatusi285/memory-decidability" target="_blank" rel="noopener">复现仓库<span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="card project reveal">
+        <figure class="work-figure">
+          <div class="work-media">
+            <img src="assets/work/disk-keeper.webp" alt="磁盘管家存储总览界面" width="1400" height="887" loading="lazy" decoding="async" />
+          </div>
+          <figcaption class="work-caption">存储总览 · 风险分级与当日新增</figcaption>
+        </figure>
+
+        <div class="project-top">
+          <span class="project-index">03</span>
+          <span class="project-kind">工具链</span>
+        </div>
+        <h3>disk-keeper</h3>
+        <p class="project-desc">
+          只读优先的磁盘盘点工具。扫描 C、D、E 三盘目录树，按大小与时间戳生成大文件与当日新增清单，
+          结合扩展名、路径特征与安装规则标注用途和风险，分总览、大文件、今日新增、冗余、清理箱五个视图。
+          实测一次快速扫描 1.4 分钟，三盘索引覆盖 56% / 98% / 100%。
+        </p>
+        <ul class="tags"><li>C# / .NET</li><li>文件系统</li><li>规则标注</li></ul>
         <div class="project-links">
           <span>私有仓库 · 未公开</span>
         </div>
       </article>
 
       <article class="card project reveal">
-        <div class="project-top">
-          <span class="project-index">03</span>
-          <span class="project-kind">前端 / 交互</span>
-        </div>
-        <h3>piano-keys</h3>
-        <p class="project-desc">
-          把《Avid》的键盘谱做成可视化练习器。谱面解析成时间序列后映射到 23 个按键，每个音符提前点亮键帽、
-          填满即到演奏时点；实时判定按键并统计分数、连击与准确率，五档难度按音域与和弦裁剪。
-        </p>
-        <ul class="tags"><li>JavaScript</li><li>音频时序</li><li>实时判定</li></ul>
-        <div class="project-links">
-          <span>本地项目 · 未开源</span>
-        </div>
-      </article>
+        <figure class="work-figure">
+          <div class="work-media">
+            <img src="assets/work/dsh-maintenance.webp" alt="DSH 维护程序体检报告界面" width="1400" height="714" loading="lazy" decoding="async" />
+          </div>
+          <figcaption class="work-caption">体检报告 · 8 类动作的命令行入口</figcaption>
+        </figure>
 
-      <article class="card project reveal">
         <div class="project-top">
           <span class="project-index">04</span>
-          <span class="project-kind">工具链</span>
+          <span class="project-kind">工程工具</span>
         </div>
-        <h3>disk-keeper</h3>
+        <h3>DeepSeek Harness 维护工具</h3>
         <p class="project-desc">
-          只读优先的系统盘盘点工具。扫描 C、D、E 三盘目录树，按大小与时间戳列出大文件和当日新增，
-          再结合扩展名与安装规则标注用途和风险，并把结果分成总览、大文件、今日新增、冗余与清理箱几个视图。
+          针对 dsh-auth-* cookie 累积导致的认证失败，把清理、体检与配置恢复做成可重复执行的流程。
+          PowerShell 编排、node:sqlite 直连分区库：完全退出后备份主库与分区库，按前缀清理并执行 integrity_check；
+          另有状态检查、备份回滚、cordis.patch.yml 修复与默认模型条目恢复。v1.2 收敛为 8 类动作，
+          可经桌面 .cmd 菜单调用，在临时 profile 与构造 cookie 库上完成 142 条清理、备份与幂等回归。
         </p>
-        <ul class="tags"><li>C# / .NET</li><li>文件系统</li><li>规则标注</li></ul>
+        <ul class="tags"><li>PowerShell</li><li>node:sqlite</li><li>回归测试</li></ul>
         <div class="project-links">
-          <span>本地项目 · 未开源</span>
+          <span>本地脚本 · 未公开</span>
         </div>
       </article>
+    </div>
 
-      <article class="card project reveal">
-        <div class="project-top">
-          <span class="project-index">05</span>
-          <span class="project-kind">本地 AI</span>
-        </div>
-        <h3>qq-dsh-bridge</h3>
-        <p class="project-desc">
-          在手机 QQ 上只读查看会话进度，任务完成时自动推送。桥接程序读取会话状态与任务结果，
-          经 QQ 协议投递到指定会话；另封装成 AstrBot 插件，提供查询与推送指令。
-        </p>
-        <ul class="tags"><li>Python</li><li>QQ 协议</li><li>AstrBot</li></ul>
-        <div class="project-links">
-          <a href="https://github.com/tatusi285/qq-dsh-bridge" target="_blank" rel="noopener">源码<span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
-
-      <article class="card project reveal">
-        <div class="project-top">
-          <span class="project-index">06</span>
-          <span class="project-kind">实验</span>
-        </div>
-        <h3>memory-decidability</h3>
-        <p class="project-desc">
-          智能体记忆的冲突裁决复现件。把“记忆条目彼此矛盾时该听谁的”整理成可重复运行的实验包，
-          方便对照不同裁决策略在同一批场景下的命中与偏差。
-        </p>
-        <ul class="tags"><li>Python</li><li>LLM 记忆</li><li>实验复现</li></ul>
-        <div class="project-links">
-          <a href="https://github.com/tatusi285/memory-decidability" target="_blank" rel="noopener">源码<span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
+    <div class="proto">
+      <h3 class="proto-title">其他原型</h3>
+      <ol class="proto-list">
+        <li class="proto-item reveal">
+          <span class="proto-name">dsh-pet</span>
+          <p>
+            置顶透明窗口的桌面智能体入口。后端接入会话与工具集，语音侧调用本地 GPT-SoVITS 运行时，
+            能力覆盖文件读取、网页检索、屏幕观察与 Office 文档生成；指令可由 QQ 私聊触发。
+          </p>
+        </li>
+        <li class="proto-item reveal">
+          <span class="proto-name">piano-keys</span>
+          <p>
+            将《Avid》键盘谱解析为时间序列并映射到 E3–D5 共 23 键，以键帽填充作倒计时；
+            实时判定按键并统计连击与准确率，设五档难度与自动演奏核对。
+          </p>
+        </li>
+        <li class="proto-item reveal">
+          <span class="proto-name">qq-dsh-bridge</span>
+          <p>
+            读取会话状态与任务结果，经 QQ 协议投递到指定会话，并提供 AstrBot 插件；
+            只读定位，不做远程控制。
+          </p>
+        </li>
+      </ol>
+      <p class="proto-note">
+        另有 emb-server（本地 embedding HTTP 服务）、原神知识库三件套（原始数据到 Markdown 检索语料）、
+        pilot（提示词对照实验）、daml（分层记忆验证）、astrbot-manual（插件手册静态生成）、
+        DSH 桌面入口原型、WSL + RVC 语音转换原型与技术交底书，均记录在项目集文档中。
+      </p>
     </div>
   </section>
 
@@ -275,8 +329,8 @@
   <section class="section container" id="abilities">
     <div class="section-head reveal">
       <p class="eyebrow">03 — 能力</p>
-      <h2>我能接下什么</h2>
-      <p class="section-lead">下面四条不是简历上的形容词，是上面那批项目里真正动手做过的部分。</p>
+      <h2>技术能力</h2>
+      <p class="section-lead">按实现划分的四类能力，每条对应上文具体项目。</p>
     </div>
 
     <div class="abilities">
@@ -287,8 +341,8 @@
         </div>
         <h3>Windows 桌面集成</h3>
         <p class="project-desc">
-          把自定义内容挂进系统合成层，而不是在上面盖一层窗口。定位 Explorer 宿主窗口、
-          用交换链接管呈现、让渲染循环脱离 UI 线程，并处理全屏检测、帧率控制与资源回收。
+          在系统接管合成层的前提下恢复自定义绘制：宿主窗口定位、交换链接管呈现、渲染线程隔离，
+          以及全屏检测、帧率控制与资源回收。
         </p>
         <ul class="tags"><li>C#</li><li>Win32</li><li>D3D11</li></ul>
       </article>
@@ -298,10 +352,10 @@
           <span class="project-index">02</span>
           <span class="project-kind">AI 工程</span>
         </div>
-        <h3>本地 AI 服务化</h3>
+        <h3>本地模型服务化</h3>
         <p class="project-desc">
-          把推理从脚本做成一直在跑的服务：集中管理模型、参考音频与启动参数的语音运行时，
-          轻量 embedding HTTP 服务，以及把会话状态推到消息通道的桥接程序。
+          模型与参数集中管理、统一调用边界、执行状态外发。已实现语音运行时、embedding HTTP 服务
+          与会话状态到消息通道的桥接。
         </p>
         <ul class="tags"><li>Python</li><li>HTTP</li><li>GPT-SoVITS</li></ul>
       </article>
@@ -311,10 +365,10 @@
           <span class="project-index">03</span>
           <span class="project-kind">工具与数据</span>
         </div>
-        <h3>脚本与数据整理</h3>
+        <h3>脚本与数据流程</h3>
         <p class="project-desc">
-          用脚本把重复劳动变成能重跑的流程：PowerShell 加 node:sqlite 的维护脚本（备份、清理、
-          integrity_check、回滚，142 条清理回归），原始数据到 Markdown 知识库的清洗与导入。
+          把一次性操作变成可回归的流程：PowerShell + node:sqlite 的维护脚本（备份、清理、integrity_check、回滚），
+          数据清洗到 Markdown 检索语料，插件元数据静态扫描生成手册。
         </p>
         <ul class="tags"><li>PowerShell</li><li>SQLite</li><li>Markdown</li></ul>
       </article>
@@ -324,35 +378,92 @@
           <span class="project-index">04</span>
           <span class="project-kind">前端</span>
         </div>
-        <h3>浏览器里的时序交互</h3>
+        <h3>前端与时序交互</h3>
         <p class="project-desc">
-          做带实时判定的交互工具：把谱面解析成时间序列，用键帽填充当作倒计时，
-          在音频延迟与调度抖动的条件下判定打击点并统计准确率。
+          谱面解析为时间序列，以视觉填充作倒计时，实时判定并统计准确率；
+          处理键盘扫描率与音频延迟引起的判定偏差。
         </p>
         <ul class="tags"><li>JavaScript</li><li>DOM</li><li>音频时序</li></ul>
       </article>
     </div>
   </section>
 
+  <!-- ===================== 岗位 ===================== -->
+  <section class="section container" id="roles">
+    <div class="section-head reveal">
+      <p class="eyebrow">04 — 岗位</p>
+      <h2>可胜任岗位</h2>
+      <p class="section-lead">以下岗位均有对应交付物，技术栈与产出可直接核对。</p>
+    </div>
+
+    <ol class="proto-list role-list">
+      <li class="proto-item reveal">
+        <span class="proto-name">Windows 客户端开发<em>桌面集成 / 图形方向</em></span>
+        <div class="proto-body">
+          <p>
+            承担窗口层级与合成、GPU 呈现、渲染循环与资源管理相关工作。
+            依据：Haloflux 的桌面宿主窗口定位与 D3D11 交换链挂接；disk-keeper 的目录树扫描、规则标注与风险分级。
+          </p>
+          <ul class="tags"><li>C# / .NET</li><li>Win32</li><li>D3D11</li></ul>
+        </div>
+      </li>
+      <li class="proto-item reveal">
+        <span class="proto-name">AI 应用工程<em>本地部署 / Agent 工具链</em></span>
+        <div class="proto-body">
+          <p>
+            把开源模型与推理框架封装为常驻服务并接入业务入口，处理模型加载、接口封装与状态同步。
+            依据：GPT-SoVITS 语音运行时、embedding HTTP 服务、会话状态到 QQ 的桥接与桌宠工具链。
+          </p>
+          <ul class="tags"><li>Python</li><li>HTTP</li><li>GPT-SoVITS</li></ul>
+        </div>
+      </li>
+      <li class="proto-item reveal">
+        <span class="proto-name">工具链与自动化<em>脚本 / 数据处理</em></span>
+        <div class="proto-body">
+          <p>
+            编写可回归的运维脚本与数据流水线，覆盖备份、清理、校验与回滚。
+            依据：DSH 维护工具（8 类动作、142 条清理回归）、插件手册静态生成、游戏数据到 Markdown 检索语料。
+          </p>
+          <ul class="tags"><li>PowerShell</li><li>SQLite</li><li>Python</li></ul>
+        </div>
+      </li>
+      <li class="proto-item reveal">
+        <span class="proto-name">前端交互开发<em>可视化 / 实时判定</em></span>
+        <div class="proto-body">
+          <p>
+            在浏览器中实现带时序判定的交互工具与数据界面，处理输入延迟与渲染时序。
+            依据：piano-keys 的谱面时间序列映射、实时判定与准确率统计。
+          </p>
+          <ul class="tags"><li>JavaScript</li><li>DOM</li><li>音频时序</li></ul>
+        </div>
+      </li>
+    </ol>
+
+    <p class="proto-note">
+      另具备受控实验设计与论文写作经验（见「记忆冲突的可判定性」），可承担算法或研究类岗位的实验实现与复现工作。
+    </p>
+  </section>
+
   <!-- ===================== 联系 ===================== -->
   <section class="section container" id="contact">
     <div class="contact-card reveal">
-      <p class="eyebrow">04 — 联系</p>
-      <h2>有想法，聊聊。</h2>
+      <p class="eyebrow">05 — 联系</p>
+      <h2>联系方式</h2>
       <p class="contact-lead">
-        项目合作、技术交流，或者只是想问问某个链路怎么跑通——都可以直接发邮件，看到就回。
-        代码都在 GitHub 上，欢迎来翻。
+        技术问题、合作或其他讨论，可直接邮件联系。代码与复现材料见 GitHub。
       </p>
 
       <div class="contact-actions">
         <!-- EDIT: 邮箱改 href 和按钮文字两处；下面的“复制邮箱”按钮会自动读取这个链接 -->
         <a class="btn btn-primary" href="mailto:2499371088@qq.com">2499371088@qq.com</a>
         <button class="btn btn-ghost" id="copy-email" type="button" data-email="2499371088@qq.com">复制邮箱</button>
+        <a class="btn btn-ghost" href="tel:+8618215771018">182 1577 1018</a>
       </div>
 
       <ul class="socials socials--row" aria-label="社交链接">
         <li><a href="https://github.com/tatusi285" target="_blank" rel="noopener">GitHub<span aria-hidden="true">↗</span></a></li>
         <li><a href="mailto:2499371088@qq.com">Email<span aria-hidden="true">↗</span></a></li>
+        <li><a href="tel:+8618215771018">电话<span aria-hidden="true">↗</span></a></li>
       </ul>
     </div>
   </section>
@@ -361,7 +472,7 @@
 
 <footer class="site-footer container">
   <p>© <span id="year">2026</span> 李瀚</p>
-  <p class="footer-note">手写的 HTML，托管在 Cloudflare Pages。</p>
+  <p class="footer-note">静态站点 · HTML / CSS / JS · 托管于 GitHub Pages</p>
 </footer>
 
 <script src="assets/main.js" defer></script>
