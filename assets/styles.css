@@ -349,6 +349,19 @@ html[data-theme="light"] .i-sun {
   transform: translateX(3px);
 }
 
+/* 复制按钮的图标不该左右跑动 */
+.copy-btn:hover svg {
+  transform: none;
+}
+
+.copy-btn .copy-icon {
+  opacity: 0.85;
+}
+
+.copy-label {
+  font-variant-numeric: tabular-nums;
+}
+
 .btn-primary {
   background: var(--accent);
   color: var(--accent-ink);
@@ -372,9 +385,13 @@ html[data-theme="light"] .i-sun {
   border-color: var(--accent);
 }
 
-.btn.is-copied {
+.btn-ghost.is-copied {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+.btn-primary.is-copied {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent);
 }
 
 .stats {
@@ -926,6 +943,38 @@ html[data-theme="light"] .i-sun {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 28px;
+}
+
+.contact-hint {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.75;
+}
+
+/* ---------- 复制成功的轻提示 ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 60;
+  padding: 10px 18px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s var(--ease);
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 /* ---------- 页脚 ---------- */

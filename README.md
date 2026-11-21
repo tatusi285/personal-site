@@ -92,7 +92,7 @@ git push
 | 其他原型 | `<ol class="proto-list">` 里的三行，复制 `<li>` 可增加 |
 | 能力 | 每个 `<article class="card ability">` 一条，四条约占满两行 |
 | 实习 | `<ol class="proto-list role-list">` 里每行一个方向，`<em>` 是方向副标题；上方留了可实习时间/地点的 EDIT 注释位 |
-| 联系 | 改 `<a href="mailto:...">` 的地址与按钮文字；电话改 `href="tel:+86..."` 和显示文字；“复制邮箱”会自动读取 mailto 链接 |
+| 联系 | 两个按钮都是**一键复制**（不再用 mailto / tel 链接）：改 `data-copy`（复制内容）、`data-display`（提示文字）和按钮里 `<span class="copy-label">` 的文字，三处保持一致 |
 
 > 顶部还有一段 `application/ld+json` 结构化数据（姓名、职务、邮箱、电话、学校），
 > 改联系方式时记得同步，搜索引擎与分享卡片会读它。

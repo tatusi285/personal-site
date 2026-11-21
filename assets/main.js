@@ -173,24 +173,32 @@
     });
   }
 
-  /* ---------- 4. 复制邮箱 ---------- */
-  var copyBtn = document.getElementById('copy-email');
+  /* ---------- 4. 一键复制（邮箱 / 电话） ---------- */
+  var copyTargets = Array.prototype.slice.call(
+    document.querySelectorAll('[data-copy]')
+  );
 
-  if (copyBtn) {
-    // 联系区的 mailto 链接是唯一事实来源：改了它，复制按钮自动跟着变
-    var mailLink = document.querySelector('#contact a[href^="mailto:"]');
-    if (mailLink) {
-      var synced = mailLink
-        .getAttribute('href')
-        .replace(/^mailto:/i, '')
-        .split('?')[0];
-      if (synced) copyBtn.setAttribute('data-email', synced);
-    }
+  if (copyTargets.length) {
+    var toast = null;
+    var toastTimer = null;
 
-    var email = copyBtn.getAttribute('data-email') || '';
-    var originalLabel = copyBtn.textContent;
-    var resetTimer = null;
+    var showToast = function (message) {
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        document.body.appendChild(toast);
+      }
+      toast.textContent = message;
+      toast.classList.add('is-visible');
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(function () {
+        toast.classList.remove('is-visible');
+      }, 1900);
+    };
 
+    // 同步方案：http 页面、旧浏览器、内嵌浏览器里都能用
     var fallbackCopy = function (text) {
       try {
         var field = document.createElement('textarea');
@@ -209,45 +217,45 @@
       }
     };
 
-    copyBtn.addEventListener('click', function () {
-      var settled = false;
-      var guard = null;
+    copyTargets.forEach(function (btn) {
+      var value = (btn.getAttribute('data-copy') || '').trim();
+      var shown = btn.getAttribute('data-display') || value;
 
-      var done = function (ok) {
-        if (settled) return;
-        settled = true;
-        window.clearTimeout(guard);
-        copyBtn.textContent = ok ? '已复制 ✓' : '请手动复制';
-        copyBtn.classList.toggle('is-copied', ok);
-        window.clearTimeout(resetTimer);
-        resetTimer = window.setTimeout(function () {
-          copyBtn.textContent = originalLabel;
-          copyBtn.classList.remove('is-copied');
-        }, 1800);
+      var report = function (ok) {
+        btn.classList.toggle('is-copied', ok);
+        window.setTimeout(function () {
+          btn.classList.remove('is-copied');
+        }, 1600);
+        showToast(ok ? '已复制：' + shown : '复制失败，请手动选择后复制');
       };
 
-      // 1) 先试同步方案：http 页面、旧浏览器、内嵌浏览器里都能用
-      if (fallbackCopy(email)) {
-        done(true);
-        return;
-      }
+      btn.addEventListener('click', function () {
+        if (!value) return;
 
-      // 2) 再试现代剪贴板 API，带超时兜底，避免按钮永远卡住
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        guard = window.setTimeout(function () {
-          done(false);
-        }, 1200);
-        navigator.clipboard.writeText(email).then(
-          function () {
-            done(true);
-          },
-          function () {
-            done(false);
-          }
-        );
-      } else {
-        done(false);
-      }
+        if (fallbackCopy(value)) {
+          report(true);
+          return;
+        }
+
+        // 现代剪贴板 API，带超时兜底，避免没有任何反馈
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          var guard = window.setTimeout(function () {
+            report(false);
+          }, 1200);
+          navigator.clipboard.writeText(value).then(
+            function () {
+              window.clearTimeout(guard);
+              report(true);
+            },
+            function () {
+              window.clearTimeout(guard);
+              report(false);
+            }
+          );
+        } else {
+          report(false);
+        }
+      });
     });
   }
 

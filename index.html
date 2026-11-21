@@ -114,7 +114,7 @@
           查看项目
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6.5 18.5 12 13 17.5" /></svg>
         </a>
-        <a class="btn btn-ghost" href="mailto:2499371088@qq.com">邮件联系</a>
+        <a class="btn btn-ghost" href="#contact">联系方式</a>
       </div>
 
       <dl class="stats reveal">
@@ -452,20 +452,36 @@
       <p class="eyebrow">05 — 联系</p>
       <h2>联系方式</h2>
       <p class="contact-lead">
-        技术问题、合作或其他讨论，可直接邮件联系。代码与复现材料见 GitHub。
+        技术问题、合作或其他讨论，可复制下方任一项直接联系。代码与复现材料见 GitHub。
       </p>
 
       <div class="contact-actions">
-        <!-- EDIT: 邮箱改 href 和按钮文字两处；下面的“复制邮箱”按钮会自动读取这个链接 -->
-        <a class="btn btn-primary" href="mailto:2499371088@qq.com">2499371088@qq.com</a>
-        <button class="btn btn-ghost" id="copy-email" type="button" data-email="2499371088@qq.com">复制邮箱</button>
-        <a class="btn btn-ghost" href="tel:+8618215771018">182 1577 1018</a>
+        <!-- EDIT: 换邮箱/电话时，data-copy（原始值）、data-display（提示里显示的样子）与按钮文字三处保持一致 -->
+        <button class="btn btn-primary copy-btn" type="button"
+                data-copy="2499371088@qq.com" data-display="2499371088@qq.com"
+                aria-label="复制邮箱 2499371088@qq.com">
+          <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="10.5" height="10.5" rx="2.4" />
+            <path d="M6.4 14.5H5.6A1.6 1.6 0 0 1 4 12.9V5.6A1.6 1.6 0 0 1 5.6 4h7.3a1.6 1.6 0 0 1 1.6 1.6v.8" />
+          </svg>
+          <span class="copy-label">2499371088@qq.com</span>
+        </button>
+
+        <button class="btn btn-ghost copy-btn" type="button"
+                data-copy="18215771018" data-display="182 1577 1018"
+                aria-label="复制手机号 182 1577 1018">
+          <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="10.5" height="10.5" rx="2.4" />
+            <path d="M6.4 14.5H5.6A1.6 1.6 0 0 1 4 12.9V5.6A1.6 1.6 0 0 1 5.6 4h7.3a1.6 1.6 0 0 1 1.6 1.6v.8" />
+          </svg>
+          <span class="copy-label">182 1577 1018</span>
+        </button>
       </div>
+
+      <p class="contact-hint">点击任意一项复制到剪贴板，粘贴即可使用。</p>
 
       <ul class="socials socials--row" aria-label="社交链接">
         <li><a href="https://github.com/tatusi285" target="_blank" rel="noopener">GitHub<span aria-hidden="true">↗</span></a></li>
-        <li><a href="mailto:2499371088@qq.com">Email<span aria-hidden="true">↗</span></a></li>
-        <li><a href="tel:+8618215771018">电话<span aria-hidden="true">↗</span></a></li>
       </ul>
     </div>
   </section>
