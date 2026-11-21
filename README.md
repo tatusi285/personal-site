@@ -85,7 +85,7 @@ git push
 | `<title>` / `description` | 浏览器标签和搜索结果里的标题、简介 |
 | `og:*` 标签 | 分享到微信/推特时的卡片信息，现在是真实网址 |
 | 首屏 | 名字、身份、自我介绍、状态徽标、数据栏 |
-| 头像 | `assets/me.webp`（640×640，面部特写）。换照片时保持正方形，或直接替换后调 `build` 参数 |
+| 头像 | `assets/me.webp`（460×460，取自 GitHub 头像的本地快照）。换照片时保持正方形即可 |
 | 社交链接 | GitHub / Email / 电话，多余的整行删掉 |
 | 关于 | 两段工作说明 + “当前工作”三条 + 技术栈标签 |
 | 项目 | 每个 `<article class="card project">` 一个项目，含 `<figure class="work-figure">` 实录区；不需要实录就删掉整个 figure |

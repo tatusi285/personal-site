@@ -945,13 +945,6 @@ html[data-theme="light"] .i-sun {
   margin-top: 28px;
 }
 
-.contact-hint {
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: 0.86rem;
-  line-height: 1.75;
-}
-
 /* ---------- 复制成功的轻提示 ---------- */
 .toast {
   position: fixed;
