@@ -24,45 +24,17 @@ personal-site/
 
 ---
 
-## 二、发布到 Cloudflare Pages（免费，无需备案）
+## 二、发布：GitHub Pages（已启用）
 
-### 第 1 步：把文件放进 GitHub
+线上地址：**<https://tatusi285.github.io/personal-site/>**
+仓库：<https://github.com/tatusi285/personal-site>（公开，`main` 分支）
 
-在 github.com 右上角 `+` → **New repository**，名字比如 `personal-site`，Public / Private 都可以，**不要**勾选自动加 README。
+发布链路很简单：**`git push` → GitHub Pages 自动构建 → 1~2 分钟后线上更新**。
+不用手动上传，也不用登录任何第三方面板。
 
-然后在 PowerShell 里执行（把 `<你的用户名>` 换成你的 GitHub 用户名）：
+### 以后怎么更新内容
 
-```powershell
-cd "C:\Users\LH\Documents\deepseek-harness\default-workspace\personal-site"
-git init -b main
-git add .
-git commit -m "init: 个人主页"
-git remote add origin https://github.com/<你的用户名>/personal-site.git
-git push -u origin main
-```
-
-> 推送时会弹窗要求登录 GitHub，正常授权即可。如果提示找不到仓库，先确认仓库已经在网页上创建好。
-
-### 第 2 步：让 Cloudflare 接上这个仓库
-
-1. 打开 <https://dash.cloudflare.com> 注册/登录（免费，只需要邮箱，不用信用卡）
-2. 左侧 **Workers & Pages** → **Create** → 选 **Pages** → **Connect to Git**
-3. 授权 GitHub，选中刚才的 `personal-site` 仓库 → **Begin setup**
-4. 构建配置**照抄**下面三项（这是纯静态站，不要让它跑构建）：
-
-| 配置项 | 填什么 |
-| --- | --- |
-| Framework preset | `None` |
-| Build command | **留空** |
-| Build output directory | `/` |
-
-5. 点 **Save and Deploy**，等 20 秒左右
-
-完成后你会拿到一个网址：`https://personal-site-xxx.pages.dev`。**这就是你的正式网站了**，手机、朋友、任何设备都能打开。
-
-### 第 3 步：以后怎么更新内容
-
-改 `index.html` 里的文字 → 在 `personal-site` 目录执行：
+改完文件，在 `personal-site` 目录执行：
 
 ```powershell
 git add .
@@ -70,18 +42,29 @@ git commit -m "更新内容"
 git push
 ```
 
-Cloudflare 会自动重新部署，几十秒后线上就是新版本。
+进度看仓库的 **Actions** 标签，`pages build and deployment` 跑绿就发布完成。
+
+### 当初是怎么开的（备查）
+
+仓库 **Settings → Pages** → Source 选 `Deploy from a branch` → 分支 `main`、目录 `/ (root)` → Save。
+根目录的 `.nojekyll` 是给 Pages 的标记，让它原样发布静态文件、不跑 Jekyll 处理——**不要删**。
+
+### 为什么不是 Cloudflare Pages
+
+原本计划用 Cloudflare Pages，但在国内部分网络下 `dash.cloudflare.com` 直接超时（API 端点是通的，可创建 Token 又必须进面板），所以改走 GitHub Pages。
+以后若网络/域名条件变了想换回去，文件不用改：Cloudflare Pages 连同一个仓库、构建命令留空、输出目录 `/` 即可，两个地址可以并存。
 
 ---
 
 ## 三、接自己的域名（可选，随时可加）
 
-1. 买域名（Cloudflare Registrar / 阿里云 / 腾讯云都可以，`.com` 约 ¥70–90/年）
-2. Cloudflare Pages 项目 → **Custom domains** → **Set up a custom domain** → 输入域名
-3. 按提示加一条 DNS 记录（域名如果本身就托管在 Cloudflare，它会自动配好，点一下就行）
-4. 证书是自动签发的，不需要手动配 HTTPS
+1. 买域名（阿里云 / 腾讯云 / Cloudflare Registrar 都可以，`.com` 约 ¥70–90/年）
+2. 仓库 **Settings → Pages → Custom domain** 填入域名 → Save
+3. 到域名商加解析：`CNAME` 记录指向 `tatusi285.github.io`（根域名用 A 记录指向 GitHub 的四个 IP）
+4. 等 DNS 生效后，在 Pages 页面勾上 **Enforce HTTPS**（证书是自动签发的）
 
 > 用境外托管**不需要备案**。只有把服务器/对象存储放在中国大陆境内时才需要 ICP 备案。
+
 
 ---
 
@@ -117,8 +100,9 @@ Cloudflare 会自动重新部署，几十秒后线上就是新版本。
 ## 五、几种常见情况的处理
 
 **国内访问偏慢？**
-Cloudflare 的免费节点在国内速度中等，一般是“能打开、首屏 1–3 秒”。如果访客主要在国内且很在意速度：
-把同样的文件上传到阿里云 OSS / 腾讯云 COS 的静态网站托管 + CDN，成本几元/月，但**自定义域名需要先备案**（个人备案约 1–3 周）。
+`github.io` 在国内有时快有时慢（实测首屏 1 秒左右，但会受网络波动影响）。两条路：
+① 接一个自己的域名指向 GitHub Pages，通常比裸 `github.io` 稳定；
+② 换成 Cloudflare Pages / Vercel 部署同一套文件（国内速度略好），或放到阿里云 OSS / 腾讯云 COS + CDN（最快，但自定义域名要先备案，个人备案约 1–3 周）。
 
 **想以后加博客？**
 现在这套是“零构建”，加文章系统会累。真要写长文时，把项目换成 `Astro`：`index.html` 的内容搬进 `public/` 或改写成 `.astro` 组件，文章用 Markdown，Cloudflare 那边构建命令填 `npm run build`、输出目录填 `dist` 即可。需要我改，直接说。
